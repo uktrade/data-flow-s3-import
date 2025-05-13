@@ -2,7 +2,9 @@ name: Python package
 
 on:
   push:
-  pull_request: 
+    branches:
+      - IDPF-433
+  pull_request:
 
 jobs:
   build:

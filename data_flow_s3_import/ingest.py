@@ -2,10 +2,12 @@ import json
 import logging
 from typing import Any, Iterable, Iterator, Optional
 
+import boto3
 from django.db.models import Model
 from django.db.models.manager import BaseManager
 from smart_open import open as smart_open
 
+from data_flow_s3_import.models import IngestedModel
 from data_flow_s3_import.types import (PrimaryKey, S3BotoResource, S3Bucket,
                                        S3ObjectSummary)
 
@@ -37,7 +39,7 @@ class DataFlowS3Ingest:
         """
         Hook for boto resource initialiser. Not required if object is initialised with resource.
         """
-        raise NotImplementedError()
+        return boto3.resource("s3")
 
     def get_export_path(self) -> str:
         """
@@ -192,14 +194,14 @@ class DataFlowS3Ingest:
 
 
 class DataFlowS3IngestToModel(DataFlowS3Ingest):
-    model: Model.__class__
+    model: type[IngestedModel]
     model_uses_baseclass: bool = True
     identifier_field_name: str = "id"
     identifier_field_object_mapping: str = "id"
     mapping: dict[str, str]
     imported_pks: Optional[list[PrimaryKey]] = None
 
-    def get_model(self) -> Model.__class__:
+    def get_model(self) -> type[IngestedModel]:
         """Get model object to create for each row"""
         try:
             return self.model

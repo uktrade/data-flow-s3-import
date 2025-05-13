@@ -11,17 +11,37 @@ readme = "README.md"
 homepage = "https://github.com/uktrade/data-flow-s3-import"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.10,<4.0"
 django = ">=4.2, <6.0"
 smart-open = "^7.1.0"
+boto3 = "^1.38.14"
 
 [tool.poetry.group.testing.dependencies]
 pytest-django = "^4.11.1"
+pytest-mock = "^3.14.0"
+
+[tool.poetry.group.testing]
+optional = true
 
 [tool.poetry.group.utils.dependencies]
 isort = "*"
 black = "*"
 mypy = "*"
+django-stubs = "*"
+boto3-stubs = "*"
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py", "*_test.py", "tests.py"]
+DJANGO_SETTINGS_MODULE = "data_flow_s3_import.tests.settings"
+
+[tool.mypy]
+exclude = ["build", "dist", "setup.py"]
+plugins = ["mypy_django_plugin.main"]
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["setuptools.*", "smart_open.*"]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "data_flow_s3_import.tests.settings"

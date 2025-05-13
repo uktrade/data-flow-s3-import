@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "data-flow-s3-import"
+version = "0.0.1"
+description = "Helps python and django projects import data exposed by Data Flow into a S3 bucket"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/uktrade/data-flow-s3-import"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+django = ">=4.2, <6.0"
+smart-open = "^7.1.0"
+
+[tool.poetry.group.testing.dependencies]
+pytest-django = "^4.11.1"
+
+[tool.poetry.group.utils.dependencies]
+isort = "*"
+black = "*"
+mypy = "*"
+
+[tool.pytest.ini_options]
+python_files = ["test_*.py", "*_test.py", "tests.py"]

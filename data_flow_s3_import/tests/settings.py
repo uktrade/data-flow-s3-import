@@ -9,6 +9,7 @@ SECRET_KEY = django.utils.crypto.get_random_string(50)
 INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "data_flow_s3_import",
 ]
 
 TEMPLATES = [

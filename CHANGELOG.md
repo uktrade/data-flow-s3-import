@@ -1,3 +1,1 @@
-## 0.0.1
-
-Initial release
+[Releases](https://github.com/uktrade/data-flow-s3-import/releases)

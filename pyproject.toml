@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [tool.poetry]
 name = "data-flow-s3-import"
 version = "0.0.1"
-description = "Helps python and django projects import data exposed by Data Flow into a S3 bucket"
+description = "Helps Python and Django projects import data exposed by Data Flow into a S3 bucket"
 authors = [
     "Alsen Aligullu <alsen.aligullu@digitial.trade.gov.uk>",
     "Marcel Kornblum <marcel.kornblum@digitial.trade.gov.uk>",

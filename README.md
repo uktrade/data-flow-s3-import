@@ -1,6 +1,6 @@
 # Data Flow S3 Importer
 
-> This package helps python and django projects import data exposed by Data Flow into an S3 bucket.
+> This package helps Python and Django projects import data exposed by Data Flow into an S3 bucket.
 
 Data Flow is a data pipeline service that can be made to write data into S3 buckets for ingestion by client applications.
 

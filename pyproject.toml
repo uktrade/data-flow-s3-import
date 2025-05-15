@@ -23,7 +23,6 @@ boto3 = "^1.38.14"
 [tool.poetry.group.testing.dependencies]
 pytest-django = "^4.11.1"
 pytest-mock = "^3.14.0"
-tox = "^4"
 
 [tool.poetry.group.testing]
 optional = true
